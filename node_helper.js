@@ -4,37 +4,31 @@ const NodeHelper = require("node_helper");
 const Log = require("logger");
 const Fetcher = require("./fetcher.js");
 
-const BASE_URL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=[USERNAME]&api_key=[API_KEY]&limit=1&format=json";
-
 module.exports = NodeHelper.create({
     fetchers: [],
 
-    socketNotificationReceived: function(notification, config) {
-        if (notification != "SUBSCRIBE") return;
+    socketNotificationReceived: function(notification, payload) {
+        if (notification !== "SUBSCRIBE") return;
 
-        Log.log(this.name + " received a socket notification: " + JSON.stringify(config));
-
-        let fetcher = this.findFetcher(
-            config.key,
-            config.username
-        )
+        let fetcher = this.findFetcher(payload.config)
 
         if (!fetcher) {
-            fetcher = this.createFetcher();
+            fetcher = this.createFetcher(payload.identifier, payload.config);
         }
 
-        // fetcher.dispatch();
+        Log.info(`[${this.name}][${payload.identifier}] Subscribing to fetcher.`);
+        fetcher.addListener(payload.identifier);
     },
 
-    findFetcher(key, username) {
-        return this.fetchers.find(f =>
-            f.key === key &&
-            f.username === username
-        );
+    findFetcher(config) {
+        return this.fetchers.find(f =>f.isListenerCompatible(config));
     },
 
-    createFetcher() {
-        console.log('creating new fetcher.');
+    createFetcher(identifier, config) {
+        Log.info(`[${this.name}][${identifier}] Creating new fetcher.`);
+        let fetcher = new Fetcher(config, (n, p) => this.sendSocketNotification(n, p))
+        this.fetchers.push(fetcher)
+
+        return fetcher;
     },
-    
 });

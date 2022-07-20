@@ -12,29 +12,41 @@ Module.register("MMM-Lastfm",{
         passiveCount: 5,
 	},
 
+    validate() {
+        Log.info(`[${this.name}][${this.identifier}] Validating config.`);
+        // TODO
+    },
+
     start() {
-        Log.info(`Starting module: ${this.name}, ID: ${this.identifier}`);
+        Log.info(`[${this.name}][${this.identifier}] Starting module.`);
         this.subscribe();
     },
 
 	getDom: function() {
 		var wrapper = document.createElement("div");
-		wrapper.innerHTML = 'this.config.text';
+		wrapper.innerHTML = "this.config.text";
 		return wrapper;
 	},
 
     getStyles: function() {
         return [
-            this.file('css/default.css'),
+            this.file("css/default.css"),
         ]
     },
     
     socketNotificationReceived: function(notification, payload) {
-        console.log(this.name + " received a socket notification: " + notification + " - Payload: " + payload);
+        if (notification !== "UPDATE") return;
+
+        if (payload.identifier !== this.identifier) return;
+
+        Log.info(`[${this.name}][${this.identifier}] received: ${JSON.stringify(payload)}.`);
     },
 
     subscribe() {
-        this.sendSocketNotification('SUBSCRIBE', this.config);
+        Log.info(`[${this.name}][${this.identifier}] Send subscribe socket notification.`);
+        this.sendSocketNotification("SUBSCRIBE", {
+            identifier: this.identifier,
+            config: this.config
+        });
     },
-    
 });
