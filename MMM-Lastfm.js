@@ -5,9 +5,8 @@ const ANIMATION_SPEED = 1000;
 Module.register("MMM-Lastfm",{
 
 	defaults: {
-		text: "Hello World!",
         apiKey: "",
-        user: "",
+        username: "",
         activeInterval: 10,
         passiveInterval: 60,
         passiveCount: 5,
@@ -20,7 +19,7 @@ Module.register("MMM-Lastfm",{
 
 	getDom: function() {
 		var wrapper = document.createElement("div");
-		wrapper.innerHTML = this.config.text;
+		wrapper.innerHTML = 'this.config.text';
 		return wrapper;
 	},
 
