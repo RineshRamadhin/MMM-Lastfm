@@ -3,7 +3,6 @@
 const ANIMATION_SPEED = 1000;
 
 Module.register("MMM-Lastfm",{
-
 	defaults: {
         apiKey: "",
         username: "",
@@ -36,7 +35,6 @@ Module.register("MMM-Lastfm",{
     
     socketNotificationReceived: function(notification, payload) {
         if (notification !== "UPDATE") return;
-
         if (payload.identifier !== this.identifier) return;
 
         Log.info(`[${this.name}][${this.identifier}] received: ${JSON.stringify(payload)}.`);

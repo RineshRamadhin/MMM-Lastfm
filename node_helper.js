@@ -21,7 +21,7 @@ module.exports = NodeHelper.create({
     },
 
     findFetcher(config) {
-        return this.fetchers.find(f =>f.isListenerCompatible(config));
+        return this.fetchers.find(f => f.isListenerCompatible(config));
     },
 
     createFetcher(identifier, config) {

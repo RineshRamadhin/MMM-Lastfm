@@ -67,7 +67,6 @@ class Fetcher {
             !("@attr" in data.recenttracks.track[0]) ||
             !("nowplaying" in data.recenttracks.track[0]["@attr"]) ||
             !data.recenttracks.track[0]["@attr"]["nowplaying"]) {
-                Log.info(`[FETCHER][${this.#listener_ids}] passive count ${this.#passiveCounter}.`);
                 this.#passiveCounter >= this.#passiveCount ? this.#setActive(false) : this.#passiveCounter++;
                 return data;
         }
@@ -78,7 +77,6 @@ class Fetcher {
     }
 
     #broadcast(data) {
-        Log.info(`[FETCHER][${this.#listener_ids}] Sending events.`);
         this.#listener_ids.forEach(id => this.#callback("UPDATE", {
             identifier: id,
             data,
