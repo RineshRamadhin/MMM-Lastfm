@@ -3,13 +3,13 @@
 const ANIMATION_SPEED = 1000;
 
 Module.register("MMM-Lastfm",{
-	defaults: {
+    defaults: {
         apiKey: "",
         username: "",
         activeInterval: 10,
         passiveInterval: 60,
         passiveCount: 5,
-	},
+    },
 
     validate() {
         Log.info(`[${this.name}][${this.identifier}] Validating config.`);
@@ -21,11 +21,11 @@ Module.register("MMM-Lastfm",{
         this.subscribe();
     },
 
-	getDom: function() {
-		var wrapper = document.createElement("div");
-		wrapper.innerHTML = "this.config.text";
-		return wrapper;
-	},
+    getDom: function() {
+        var wrapper = document.createElement("div");
+        wrapper.innerHTML = "this.config.text";
+        return wrapper;
+    },
 
     getStyles: function() {
         return [
