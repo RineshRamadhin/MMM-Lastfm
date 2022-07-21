@@ -100,7 +100,7 @@ module.exports = class Fetcher {
             !("nowplaying" in data.recenttracks.track[0]["@attr"]) ||
             !data.recenttracks.track[0]["@attr"]["nowplaying"]) {
                 this.#passiveCounter >= this.#passiveCount ? this.#setActive(false) : this.#passiveCounter++;
-                return data;
+                return {};
         }
 
         this.#passiveCounter = 0;

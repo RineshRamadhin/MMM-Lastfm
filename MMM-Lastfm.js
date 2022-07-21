@@ -7,7 +7,9 @@
  * default core module functionality. It additionally communicates
  * with the node helper via socket messages.
  */
-Module.register("MMM-Lastfm",{
+Module.register("MMM-Lastfm", {
+    domData: {},
+
     /**
      * Default properties for the module. Empty values must be manually set.
      */
@@ -17,14 +19,28 @@ Module.register("MMM-Lastfm",{
         activeInterval: 10,
         passiveInterval: 60,
         passiveCount: 5,
-    },
+        animationSpeed: 1000,
+    },    
 
     /**
-     * Validate the default object parameters.
+     * Update the default object parameters within boundaries.
      */
-    validate() {
-        Log.info(`[${this.name}][${this.identifier}] Validating config.`);
-        // TODO
+    bound() {
+        if (this.config.activeInterval < 10) {
+            this.config.activeInterval = 10;
+        }
+
+        if (this.config.passiveInterval < 10) {
+            this.config.passiveInterval = 10;
+        }
+
+        if (this.config.passiveCount < 0) {
+            this.config.passiveCount = 0;
+        }
+
+        if (this.config.animationSpeed < 0) {
+            this.config.animationSpeed = 0;
+        }
     },
 
     /**
@@ -32,19 +48,28 @@ Module.register("MMM-Lastfm",{
      */
     start() {
         Log.info(`[${this.name}][${this.identifier}] Starting module.`);
+        this.bound();
         this.subscribe();
     },
 
     /**
-     * Define the module DOM element.
+     * Get the template file.
      * 
-     * @returns Element
+     * @returns string
      */
-    getDom: function() {
-        var wrapper = document.createElement("div");
-        wrapper.innerHTML = "this.config.text";
-        return wrapper;
-    },
+	getTemplate: function () {
+        if (Object.keys(this.domData).length === 0) return "empty.njk";		
+        return "standard.njk";
+	},
+
+    /**
+     * Get the template data.
+     * 
+     * @returns object
+     */
+	getTemplateData: function () {
+		return this.domData;
+	},
 
     /**
      * Load Cascading Style Sheets files for the module.
@@ -52,9 +77,7 @@ Module.register("MMM-Lastfm",{
      * @returns array
      */
     getStyles: function() {
-        return [
-            this.file("css/default.css"),
-        ]
+        return [this.file("css/default.css")];
     },
     
     /**
@@ -72,10 +95,11 @@ Module.register("MMM-Lastfm",{
     /**
      * Update the DOM element based on received data.
      *
-     * @param {object} payload message data
+     * @param {object} payload Last.fm data
      */
     update(payload) {
-        console.log(payload);
+        this.domData = payload.data;
+        this.updateDom(this.config.animationSpeed);
     },
 
     /**
