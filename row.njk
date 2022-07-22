@@ -1,0 +1,27 @@
+<div class="row {{ 'reverse' if data.position in ['top_right', 'bottom_right'] }}">
+    <div class="img-holder">
+        <img src="{{ (payload.recenttracks.track[0].image | last)['#text'] }}" alt="{{ payload.recenttracks.track[0].name }}">
+    </div>
+    <div class="table-holder">
+        <table class="small">
+            <tr class="normal event">
+                <td class="title bright">
+                    <span class="fa-fw fa-brands fa-itunes-note"></span>
+                    {{ payload.recenttracks.track[0].name }}
+                </td>
+            </tr>
+            <tr class="normal event">
+                <td class="title">
+                    <span class="fa-fw fa-solid fa-people-group"></span>
+                    {{ payload.recenttracks.track[0].artist['#text'] }}
+                </td>
+            </tr>
+            <tr class="normal event">
+                <td class="title">
+                    <span class="fa-fw fa-solid fa-compact-disc"></span>
+                    {{ payload.recenttracks.track[0].album['#text'] }}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

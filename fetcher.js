@@ -78,6 +78,8 @@ module.exports = class Fetcher {
      * Retrieve data from Last.fm
      */
     #get() {
+        Log.info(`[FETCHER][${this.#listener_ids}] Retrieving Last.fm data.`);
+
         fetch(BASE_URL.replace("API_KEY", this.#apiKey).replace("USERNAME", this.#username), {
             headers: {
                 "Content-Type": "application/json",

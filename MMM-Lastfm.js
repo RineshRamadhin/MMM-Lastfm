@@ -8,18 +8,21 @@
  * with the node helper via socket messages.
  */
 Module.register("MMM-Lastfm", {
-    domData: {},
+    payload: null,
 
     /**
      * Default properties for the module. Empty values must be manually set.
      */
     defaults: {
+        layout: "default",
+        loadingText: "Loading...",
         apiKey: "",
         username: "",
         activeInterval: 10,
         passiveInterval: 60,
         passiveCount: 5,
         animationSpeed: 1000,
+        textLength: 30,
     },    
 
     /**
@@ -58,8 +61,16 @@ Module.register("MMM-Lastfm", {
      * @returns string
      */
 	getTemplate: function () {
-        if (Object.keys(this.domData).length === 0) return "empty.njk";		
-        return "standard.njk";
+        if (this.payload === null) return "loading.njk";
+        if (Object.keys(this.payload).length === 0) return "empty.njk";
+
+        switch (this.config.layout) {
+            case "row":
+                return "row.njk";
+            case "default":
+            default:
+                return "standard.njk";
+        }
 	},
 
     /**
@@ -68,7 +79,11 @@ Module.register("MMM-Lastfm", {
      * @returns object
      */
 	getTemplateData: function () {
-		return this.domData;
+		return {
+            config: this.config,
+            data: this.data,
+            payload: this.payload,
+        };
 	},
 
     /**
@@ -77,7 +92,7 @@ Module.register("MMM-Lastfm", {
      * @returns array
      */
     getStyles: function() {
-        return [this.file("css/default.css")];
+        return [this.file("MMM-Lastfm.css"), "font-awesome.css"];
     },
     
     /**
@@ -98,8 +113,20 @@ Module.register("MMM-Lastfm", {
      * @param {object} payload Last.fm data
      */
     update(payload) {
-        this.domData = payload.data;
+        if (JSON.stringify(this.payload) == JSON.stringify(payload.data)) return;
+        this.display(!!Object.keys(payload.data).length);
+
+        this.payload = payload.data;
         this.updateDom(this.config.animationSpeed);
+    },
+
+    /**
+     * Show or hide the module.
+     * 
+     * @param {boolean} show display module
+     */
+    display(show) {
+        show ? this.show(this.config.animationSpeed) : this.hide(this.config.animationSpeed);
     },
 
     /**
