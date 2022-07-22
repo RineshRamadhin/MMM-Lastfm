@@ -23,7 +23,7 @@ Module.register("MMM-Lastfm", {
         passiveCount: 5,
         animationSpeed: 1000,
         textLength: 30,
-    },    
+    },
 
     /**
      * Update the default object parameters within boundaries.
