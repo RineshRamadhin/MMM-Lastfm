@@ -1,6 +1,6 @@
 # MMM-Lastfm
 
-A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that displays the [Last.fm](https://www.last.fm/) scrobble currently playing (API key required).
+A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that displays the [Last.fm](https://www.last.fm/) scrobble currently playing.
 
 ## Installation
 
