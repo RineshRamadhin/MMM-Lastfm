@@ -47,7 +47,7 @@ Then copy the `apiKey` for your config. you can find an overview of API accounts
 | `passiveInterval` | `integer`  | `60`           | How often to check for updates when not listening to a song in seconds. This should be at least 10 seconds.    |
 | `passiveCount`    | `integer`  | `5`            | How many times to stay in `active` mode after you stop listening to songs before switching to `passive` mode.  |
 | `animationSpeed`  | `integer`  | `1000`         | The fade effect speed between songs and showing / hiding the module in ms.                                     |
-| `textLength`      | `integer`  | `30`           | The maximum text length before cutting off. Does not apply for the `row` layout.                               |
+| `textLength`      | `integer`  | `30`           | The maximum text length before cutting off.                                                                    |
 
 ### API rate limits
 Last.fm makes use of a fair use policy when it comes to API rate limits. In order to reduce the API calls made to Last.fm this module will try to combine API calls as much as possible. When two or more instances of the module are shown on a page, or multiple screens are used, behind the scenes a single fetcher will be used to retrieve data from Last.fm. Fetchers will be reused when instances have the following identical config options: `apiKey`, `username`, `activeInterval`, `passiveInterval` and `passiveCount`.

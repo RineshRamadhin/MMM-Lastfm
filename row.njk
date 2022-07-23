@@ -7,19 +7,19 @@
             <tr class="normal event">
                 <td class="title bright">
                     <span class="fa-fw fa-brands fa-itunes-note"></span>
-                    {{ payload.recenttracks.track[0].name }}
+                    {{ payload.recenttracks.track[0].name | truncate(config.textLength) }}
                 </td>
             </tr>
             <tr class="normal event">
                 <td class="title">
                     <span class="fa-fw fa-solid fa-people-group"></span>
-                    {{ payload.recenttracks.track[0].artist['#text'] }}
+                    {{ payload.recenttracks.track[0].artist['#text'] | truncate(config.textLength) }}
                 </td>
             </tr>
             <tr class="normal event">
                 <td class="title">
                     <span class="fa-fw fa-solid fa-compact-disc"></span>
-                    {{ payload.recenttracks.track[0].album['#text'] }}
+                    {{ payload.recenttracks.track[0].album['#text'] | truncate(config.textLength) }}
                 </td>
             </tr>
         </table>
