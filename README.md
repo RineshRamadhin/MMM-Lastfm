@@ -15,8 +15,8 @@ git clone https://github.com/RineshRamadhin/MMM-Lastfm.git
 ### Last.fm API key
 
 To access the Last.fm API you'll need to create an account at [Last.fm](https://www.last.fm/join).
-Then [Create a new API account](https://www.last.fm/api/account/create). Make sure you don't reuse this API account for other purposes due to rate limitations.
-Fill in the required fields (you can leave `Callback URL` and `Application homepage` emmpty) and hit save.
+Then [Create a new API account](https://www.last.fm/api/account/create). Make sure you don't reuse this API account for other purposes due to [rate limitations](#api-rate-limits).
+Fill in the required fields (you can leave `Callback URL` and `Application homepage` empty) and hit save.
 Then copy the `apiKey` for your config. you can find an overview of API accounts and `apikey` on [the API accounts page](https://www.last.fm/api/accounts).
 
 ## Configuration
@@ -41,8 +41,8 @@ Then copy the `apiKey` for your config. you can find an overview of API accounts
 | ----------------- | ---------- | -------------- | -------------------------------------------------------------------------------------------------------------- |
 | `layout`          | `string`   | `standard`     | Which layout to use. Left/right alignment will happen automatically. Possible options: [`standard`, `row`]     |
 | `loadingText`     | `string`   | `Loading...`   | The loading text to show while waiting for the first response from Last.fm                                     |
-| `apiKey`          | `string`   | ``             | The Last.fm API key. See the [Last.fm API key](###-Last.fm-API-key) section for more info.                     |
-| `username`        | `string`   | ``             | The Last.fm username. See the [User-privacy](###-User-privacy) section for more info.                          |
+| `apiKey`          | `string`   | ``             | The Last.fm API key. See the [Last.fm API key](#lastfm-api-key) section for more info.                         |
+| `username`        | `string`   | ``             | The Last.fm username. See the [User-privacy](#user-privacy) section for more info.                             |
 | `activeInterval`  | `integer`  | `10`           | How often to check for updates when listening to a song in seconds. This should be at least 10 seconds.        |
 | `passiveInterval` | `integer`  | `60`           | How often to check for updates when not listening to a song in seconds. This should be at least 10 seconds.    |
 | `passiveCount`    | `integer`  | `5`            | How many times to stay in `active` mode after stopping listening to a song before switching to `passive` mode. |
