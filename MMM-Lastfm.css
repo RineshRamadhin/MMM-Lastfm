@@ -69,6 +69,7 @@
 }
 
 .MMM-Lastfm .row.reverse .title {
+    text-align: right;
     padding-left: 0;
     padding-right: 15px;
 }
