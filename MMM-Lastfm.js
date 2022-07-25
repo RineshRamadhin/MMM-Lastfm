@@ -60,7 +60,7 @@ Module.register("MMM-Lastfm", {
      * 
      * @returns string
      */
-	getTemplate: function () {
+    getTemplate: function () {
         if (this.payload === null) return "loading.njk";
         if (Object.keys(this.payload).length === 0) return "empty.njk";
 
@@ -71,28 +71,32 @@ Module.register("MMM-Lastfm", {
             default:
                 return "standard.njk";
         }
-	},
+    },
 
     /**
      * Get the template data.
      * 
      * @returns object
      */
-	getTemplateData: function () {
-		return {
+    getTemplateData: function () {
+        return {
             config: this.config,
             data: this.data,
             payload: this.payload,
         };
-	},
+    },
 
     /**
-     * Load Cascading Style Sheets files for the module.
+     * Load style sheets files for the module.
      * 
      * @returns array
      */
     getStyles: function() {
-        return [this.file("MMM-Lastfm.css"), "font-awesome.css"];
+        return [
+            this.file("standard.css"),
+            this.file("row.css"),
+            "font-awesome.css"
+        ];
     },
     
     /**
