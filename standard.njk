@@ -1,5 +1,8 @@
 <div class="standard">
-    <img src="{{ (payload.recenttracks.track[0].image | last)['#text'] }}" alt="{{ payload.recenttracks.track[0].name }}">
+    <img
+    class="{{ 'greyscale' if not config.colored }}"
+    src="{{ (payload.recenttracks.track[0].image | last)['#text'] }}"
+    alt="{{ payload.recenttracks.track[0].name }}" >
     <table class="small {{ 'reverse' if data.position in ['top_right', 'bottom_right'] }}">
         <tr class="normal event">
             <td class="symbol bright">

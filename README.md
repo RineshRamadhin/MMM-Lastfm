@@ -39,8 +39,8 @@ Then copy the `apiKey` for your config. you can find an overview of API accounts
 
 | **Option**        | **Type**   | **Default**    | **Description**                                                                                                |
 | ----------------- | ---------- | -------------- | -------------------------------------------------------------------------------------------------------------- |
-| `layout`          | `string`   | `standard`     | Which layout to use. Left/right alignment will happen automatically. Possible options: [`standard`, `row`]     |
-| `loadingText`     | `string`   | `Loading...`   | The loading text to show while waiting for the first response from Last.fm                                     |
+| `layout`          | `string`   | `standard`     | The layout to use. Left/right alignment will happen automatically. Possible options: [`standard`, `row`]       |
+| `loadingText`     | `string`   | `Loading...`   | The loading text to show while waiting for the first response from Last.fm.                                    |
 | `apiKey`          | `string`   | ``             | The Last.fm API key. See the [Last.fm API key](#lastfm-api-key) section for more info.                         |
 | `username`        | `string`   | ``             | The Last.fm username. See the [User-privacy](#user-privacy) section for more info.                             |
 | `activeInterval`  | `integer`  | `10`           | How often to check for updates when listening to a song in seconds. This should be at least 10 seconds.        |
@@ -48,6 +48,7 @@ Then copy the `apiKey` for your config. you can find an overview of API accounts
 | `passiveCount`    | `integer`  | `5`            | How many times to stay in `active` mode after you stop listening to songs before switching to `passive` mode.  |
 | `animationSpeed`  | `integer`  | `1000`         | The fade effect speed between songs and showing / hiding the module in ms.                                     |
 | `textLength`      | `integer`  | `30`           | The maximum text length before cutting off.                                                                    |
+| `colored`         | `boolean`  | `true`         | Whether to show the album art in full color or grayscale.                                                      |
 
 ### API rate limits
 Last.fm makes use of a fair use policy when it comes to API rate limits. In order to reduce the API calls made to Last.fm this module will try to combine API calls as much as possible. When two or more instances of the module are shown on a page, or multiple screens are used, behind the scenes a single fetcher will be used to retrieve data from Last.fm. Fetchers will be reused when instances have the following identical config options: `apiKey`, `username`, `activeInterval`, `passiveInterval` and `passiveCount`.

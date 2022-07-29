@@ -23,6 +23,7 @@ Module.register("MMM-Lastfm", {
         passiveCount: 5,
         animationSpeed: 1000,
         textLength: 30,
+        colored: true,
     },
 
     /**
@@ -93,6 +94,7 @@ Module.register("MMM-Lastfm", {
      */
     getStyles: function() {
         return [
+            this.file("default.css"),
             this.file("standard.css"),
             this.file("row.css"),
             "font-awesome.css"

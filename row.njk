@@ -1,6 +1,9 @@
 <div class="row {{ 'reverse' if data.position in ['top_right', 'bottom_right'] }}">
     <div class="img-holder">
-        <img src="{{ (payload.recenttracks.track[0].image | last)['#text'] }}" alt="{{ payload.recenttracks.track[0].name }}">
+        <img
+        class="{{ 'greyscale' if not config.colored }}"
+        src="{{ (payload.recenttracks.track[0].image | last)['#text'] }}"
+        alt="{{ payload.recenttracks.track[0].name }}" >
     </div>
     <div class="table-holder">
         <table class="small">
