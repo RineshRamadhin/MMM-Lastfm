@@ -139,10 +139,10 @@ Module.register("MMM-Lastfm", {
      * Send a message to the node helper to subscribe the module to a fetcher.
      */
     subscribe() {
-        // Log.info(`[${this.name}][${this.identifier}] Send subscribe socket notification.`);
-        // this.sendSocketNotification("SUBSCRIBE", {
-        //     identifier: this.identifier,
-        //     config: this.config
-        // });
+        Log.info(`[${this.name}][${this.identifier}] Send subscribe socket notification.`);
+        this.sendSocketNotification("SUBSCRIBE", {
+            identifier: this.identifier,
+            config: this.config
+        });
     },
 });
