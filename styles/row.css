@@ -54,6 +54,10 @@
 }
 
 /* Right */
+.MMM-Lastfm .row.right {
+    float: right;
+}
+
 .MMM-Lastfm .row.right .img-holder {
     float: right;
 }
