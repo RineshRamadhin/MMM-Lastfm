@@ -10,8 +10,7 @@
   border-radius: 10px;
 }
 
-.MMM-Lastfm .round,
-.MMM-Lastfm .cd  {
+.MMM-Lastfm .round {
   border-radius: 50%;
 }
 
@@ -38,6 +37,11 @@
 
 .MMM-Lastfm .rotate-reverse {
   animation-direction: reverse;
+}
+
+.MMM-Lastfm .cd {
+  border-radius: 50%;
+  border: 1px solid white;
 }
 
 .MMM-Lastfm .cd-hole {
