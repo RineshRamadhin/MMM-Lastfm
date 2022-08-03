@@ -1,45 +1,71 @@
-.MMM-Lastfm .row.reverse {
-    direction: rtl;
-}
 
 .MMM-Lastfm .row {
     display: flex;
 }
 
 .MMM-Lastfm .row .img-holder {
-    height: 5em;
-    float: left;
+    height: 100px;
 }
 
 .MMM-Lastfm .row .img-holder img {
     height: 100%;
 }
 
-.MMM-Lastfm .row .table-holder {
-    float: left;
-}
-
 .MMM-Lastfm .row table {
     height: 100%;
-    text-align: left;
 }
 
-.MMM-Lastfm .row .title {
-    padding-left: 15px;
+.MMM-Lastfm .row table .title {
+    vertical-align: bottom;
+    padding-bottom: 0;
 }
 
-.MMM-Lastfm .row.reverse .title {
-    text-align: right;
-    padding-left: 0;
-    padding-right: 15px;
-}
-
-.MMM-Lastfm .row .title.bright {
+.MMM-Lastfm .row table .title.bright {
     vertical-align: top;
     padding-top: 0;
 }
 
-.MMM-Lastfm .row .title {
-    vertical-align: bottom;
-    padding-bottom: 0;
+/* Album art effects */
+.MMM-Lastfm .row .img-holder .cd ~ .cd-hole {
+    position: relative;
+    display: block;
+    width: 15px;
+    height: 15px;
+    left: 37px;
+    bottom: 68px;
+    border-width: 6px;
+}
+
+/* Left */
+.MMM-Lastfm .row.left .img-holder {
+    float: left;
+}
+
+.MMM-Lastfm .row.left table {
+    text-align: left;
+}
+
+.MMM-Lastfm .row.left table .title {
+    padding-left: 15px;
+}
+
+.MMM-Lastfm .row.left table .title span {
+    padding-right: 4px;
+}
+
+/* Right */
+.MMM-Lastfm .row.right .img-holder {
+    float: right;
+}
+
+.MMM-Lastfm .row.right table {
+    text-align: right;
+}
+
+.MMM-Lastfm .row.right table .title {
+    padding-right: 15px;
+}
+
+.MMM-Lastfm .row.right table .title span {
+    padding-left: 4px;
 }

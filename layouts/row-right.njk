@@ -1,0 +1,31 @@
+<div class="row small right">
+    <div class="table-holder">
+        <table>
+            <tr>
+                <td class="title bright">
+                    {{ payload.recenttracks.track[0].name | truncate(config.textLength) }}
+                    <span class="fa-fw fa-brands fa-itunes-note"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    {{ payload.recenttracks.track[0].artist['#text'] | truncate(config.textLength) }}
+                    <span class="fa-fw fa-solid fa-people-group"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    {{ payload.recenttracks.track[0].album['#text'] | truncate(config.textLength) }}
+                    <span class="fa-fw fa-solid fa-compact-disc"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="img-holder">
+        <img
+        class="{{ config.albumArtEffects }}"
+        src="{{ (payload.recenttracks.track[0].image | last)['#text'] }}"
+        alt="{{ payload.recenttracks.track[0].name }}">
+        <div class="cd-hole"></div>
+    </div>
+</div>

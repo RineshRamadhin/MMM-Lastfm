@@ -1,10 +1,13 @@
-<div class="standard">
-    <img
-    class="{{ config.albumArtEffects }}"
-    src="{{ (payload.recenttracks.track[0].image | last)['#text'] }}"
-    alt="{{ payload.recenttracks.track[0].name }}" >
-    <table class="small {{ 'reverse' if data.position in ['top_right', 'bottom_right'] }}">
-        <tr class="normal event">
+<div class="standard small left">
+    <div class="img-holder">
+        <img
+        class="{{ config.albumArtEffects }}"
+        src="{{ (payload.recenttracks.track[0].image | last)['#text'] }}"
+        alt="{{ payload.recenttracks.track[0].name }}" >
+        <div class="cd-hole"></div>
+    </div>
+    <table>
+        <tr>
             <td class="symbol bright">
                 <span class="fa-fw fa-brands fa-itunes-note"></span>
             </td>
@@ -12,7 +15,7 @@
                 {{ payload.recenttracks.track[0].name | truncate(config.textLength) }}
             </td>
         </tr>
-        <tr class="normal event">
+        <tr>
             <td class="symbol">
                 <span class="fa-fw fa-solid fa-people-group"></span>
             </td>
@@ -20,7 +23,7 @@
                 {{ payload.recenttracks.track[0].artist['#text'] | truncate(config.textLength) }}
             </td>
         </tr>
-        <tr class="normal event">
+        <tr>
             <td class="symbol">
                 <span class="fa-fw fa-solid fa-compact-disc"></span>
             </td>

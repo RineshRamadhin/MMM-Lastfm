@@ -14,7 +14,8 @@ Module.register("MMM-Lastfm", {
      * Default properties for the module. Empty values must be manually set.
      */
     defaults: {
-        layout: "default",
+        layout: "standard",
+        align: null,
         loadingText: "Loading...",
         apiKey: "",
         username: "",
@@ -30,6 +31,12 @@ Module.register("MMM-Lastfm", {
      * Update the default object parameters within boundaries.
      */
     bound() {
+        if (!this.config.align) {
+            this.config.align = ['top_right', 'bottom_right'].includes(this.data.position)
+            ? 'right'
+            : 'left';
+        }
+
         if (this.config.activeInterval < 10) {
             this.config.activeInterval = 10;
         }
@@ -44,6 +51,10 @@ Module.register("MMM-Lastfm", {
 
         if (this.config.animationSpeed < 0) {
             this.config.animationSpeed = 0;
+        }
+
+        if (this.config.textLength < 0) {
+            this.config.textLength = 30;
         }
     },
 
@@ -67,10 +78,10 @@ Module.register("MMM-Lastfm", {
 
         switch (this.config.layout) {
             case "row":
-                return "layouts/row.njk";
-            case "default":
+                return `layouts/row-${this.config.align}.njk`;
+            case "standard":
             default:
-                return "layouts/standard.njk";
+                return `layouts/standard-${this.config.align}.njk`;
         }
     },
 
@@ -94,7 +105,7 @@ Module.register("MMM-Lastfm", {
      */
     getStyles: function() {
         return [
-            this.file("styles/default.css"),
+            this.file("styles/shared.css"),
             this.file("styles/standard.css"),
             this.file("styles/row.css"),
             "font-awesome.css"
