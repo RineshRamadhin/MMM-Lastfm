@@ -1,7 +1,10 @@
 # MMM-Lastfm
-A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that displays the [Last.fm](https://www.last.fm/) scrobble currently playing.
 
 ![](./assets/banner.gif)
+
+[![CodeQL](https://github.com/RineshRamadhin/MMM-Lastfm/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/RineshRamadhin/MMM-Lastfm/actions/workflows/codeql-analysis.yml)
+
+A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that displays the [Last.fm](https://www.last.fm/) scrobble currently playing.
 
 _Shown above is the module with layout: `row`, albumArtEffects: `cd rotate` and textLength: `100`._
 
