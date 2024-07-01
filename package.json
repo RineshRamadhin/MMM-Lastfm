@@ -1,0 +1,35 @@
+{
+    "name": "mmm-lastfm",
+    "version": "1.3.1",
+    "description": "A module for MagicMirror² that displays the Last.fm scrobble currently playing.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RineshRamadhin/MMM-Lastfm"
+    },
+    "keywords": [
+        "MagicMirror",
+        "MagicMirror²",
+        "MM2",
+        "Spotify",
+        "Last.fm",
+        "YouTube",
+        "Tidal",
+        "Deezer",
+        "SoundCloud",
+        "Mixcloud",
+        "Sonos",
+        "Bandcamp",
+        "Pandora"
+    ],
+    "author": {
+        "name": "Rinesh Ramadhin",
+        "url": "https://github.com/RineshRamadhin"
+    },
+    "bugs": {
+        "url": "https://github.com/RineshRamadhin/MMM-Lastfm/issues"
+    },
+    "contributing": {
+        "url": "https://github.com/RineshRamadhin/MMM-Lastfm/pulls"
+    },
+    "homepage": "https://github.com/RineshRamadhin/MMM-Lastfm#readme"
+}
