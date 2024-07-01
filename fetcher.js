@@ -1,6 +1,5 @@
 "use strict"
 
-const fetch = require("fetch");
 const Log = require("logger");
 
 const BASE_URL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=USERNAME&api_key=API_KEY&limit=1&format=json";
