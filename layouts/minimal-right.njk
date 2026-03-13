@@ -1,0 +1,14 @@
+<div class="minimal small right">
+    <table>
+        <tr>
+            <td class="title bright">
+                {{ payload.recenttracks.track[0].name | truncate(config.textLength) }}
+                -
+                {{ payload.recenttracks.track[0].artist['#text'] | truncate(config.textLength) }}
+            </td>
+            <td class="symbol bright">
+                <span class="fa-fw fa-brands fa-itunes-note"></span>
+            </td>
+        </tr>
+    </table>
+</div>

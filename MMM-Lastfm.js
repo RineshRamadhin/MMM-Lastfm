@@ -1,4 +1,11 @@
-"use strict"
+"use strict";
+
+const DEFAULT_ACTIVE_INTERVAL = 10;
+const DEFAULT_PASSIVE_INTERVAL = 60;
+const DEFAULT_PASSIVE_COUNT = 5;
+const DEFAULT_ANIMATION_SPEED = 1000;
+const DEFAULT_TEXT_LENGTH = 30;
+const MIN_INTERVAL = 10;
 
 /**
  * Core module component.
@@ -19,11 +26,11 @@ Module.register("MMM-Lastfm", {
         loadingText: "Loading...",
         apiKey: "",
         username: "",
-        activeInterval: 10,
-        passiveInterval: 60,
-        passiveCount: 5,
-        animationSpeed: 1000,
-        textLength: 30,
+        activeInterval: DEFAULT_ACTIVE_INTERVAL,
+        passiveInterval: DEFAULT_PASSIVE_INTERVAL,
+        passiveCount: DEFAULT_PASSIVE_COUNT,
+        animationSpeed: DEFAULT_ANIMATION_SPEED,
+        textLength: DEFAULT_TEXT_LENGTH,
         albumArtEffects: "",
     },
 
@@ -37,12 +44,12 @@ Module.register("MMM-Lastfm", {
             : 'left';
         }
 
-        if (this.config.activeInterval < 10) {
-            this.config.activeInterval = 10;
+        if (this.config.activeInterval < MIN_INTERVAL) {
+            this.config.activeInterval = MIN_INTERVAL;
         }
 
-        if (this.config.passiveInterval < 10) {
-            this.config.passiveInterval = 10;
+        if (this.config.passiveInterval < MIN_INTERVAL) {
+            this.config.passiveInterval = MIN_INTERVAL;
         }
 
         if (this.config.passiveCount < 0) {
@@ -54,7 +61,7 @@ Module.register("MMM-Lastfm", {
         }
 
         if (this.config.textLength < 0) {
-            this.config.textLength = 30;
+            this.config.textLength = DEFAULT_TEXT_LENGTH;
         }
     },
 
@@ -79,6 +86,8 @@ Module.register("MMM-Lastfm", {
         switch (this.config.layout) {
             case "row":
                 return `layouts/row-${this.config.align}.njk`;
+            case "minimal":
+                return `layouts/minimal-${this.config.align}.njk`;
             case "standard":
             default:
                 return `layouts/standard-${this.config.align}.njk`;
@@ -108,6 +117,7 @@ Module.register("MMM-Lastfm", {
             this.file("styles/shared.css"),
             this.file("styles/standard.css"),
             this.file("styles/row.css"),
+            this.file("styles/minimal.css"),
             "font-awesome.css"
         ];
     },
@@ -130,7 +140,7 @@ Module.register("MMM-Lastfm", {
      * @param {object} payload Last.fm data
      */
     update(payload) {
-        if (JSON.stringify(this.payload) == JSON.stringify(payload.data)) return;
+        if (JSON.stringify(this.payload) === JSON.stringify(payload.data)) return;
         this.display(!!Object.keys(payload.data).length);
 
         this.payload = payload.data;

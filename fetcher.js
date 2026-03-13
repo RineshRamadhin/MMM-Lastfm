@@ -2,7 +2,7 @@
 
 const Log = require("logger");
 
-const BASE_URL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=USERNAME&api_key=API_KEY&limit=1&format=json";
+const BASE_URL = "https://ws.audioscrobbler.com/2.0/";
 
 /**
  * Last.fm fetcher object.
@@ -79,11 +79,14 @@ module.exports = class Fetcher {
     #get() {
         Log.info(`[FETCHER][${this.#listener_ids}] Retrieving Last.fm data.`);
 
-        fetch(BASE_URL.replace("API_KEY", this.#apiKey).replace("USERNAME", this.#username), {
-            headers: {
-                "Content-Type": "application/json",
-            }
-        })
+        const url = new URL(BASE_URL);
+        url.searchParams.set("method", "user.getrecenttracks");
+        url.searchParams.set("user", this.#username);
+        url.searchParams.set("api_key", this.#apiKey);
+        url.searchParams.set("limit", "1");
+        url.searchParams.set("format", "json");
+
+        fetch(url.toString())
         .then(response => response.json())
         .then((data) => this.#status(data))
         .then((data) => this.#broadcast(data));
@@ -96,7 +99,7 @@ module.exports = class Fetcher {
      * @returns object
      */
     #status(data) {
-        if (data.recenttracks.track.length <= 0 ||
+        if (data.recenttracks.track.length === 0 ||
             !("@attr" in data.recenttracks.track[0]) ||
             !("nowplaying" in data.recenttracks.track[0]["@attr"]) ||
             !data.recenttracks.track[0]["@attr"]["nowplaying"]) {

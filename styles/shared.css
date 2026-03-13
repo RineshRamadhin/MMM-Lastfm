@@ -1,9 +1,5 @@
 .MMM-Lastfm .grayscale {
-    -webkit-filter: grayscale(100%);
-       -moz-filter: grayscale(100%);
-         -o-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-            filter: grayscale(100%); 
+  filter: grayscale(100%);
 }
 
 .MMM-Lastfm .rounded {
@@ -18,6 +14,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

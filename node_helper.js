@@ -32,7 +32,7 @@ module.exports = NodeHelper.create({
      * @param {object} payload message data 
      */
     subscribe(payload) {
-        let fetcher = this.findFetcher(payload.config)
+        let fetcher = this.findFetcher(payload.config);
 
         if (!fetcher) {
             fetcher = this.createFetcher(payload.identifier, payload.config);
@@ -46,7 +46,7 @@ module.exports = NodeHelper.create({
      * Find a fetcher compatible with the module config.
      *
      * @param {object} config module config parameters
-     * @returns 
+     * @returns Fetcher or null
      */
     findFetcher(config) {
         return this.fetchers.find(f => f.isListenerCompatible(config));
@@ -61,8 +61,8 @@ module.exports = NodeHelper.create({
      */
     createFetcher(identifier, config) {
         Log.info(`[${this.name}][${identifier}] Creating new fetcher.`);
-        let fetcher = new Fetcher(config, (n, p) => this.sendSocketNotification(n, p))
-        this.fetchers.push(fetcher)
+        let fetcher = new Fetcher(config, (n, p) => this.sendSocketNotification(n, p));
+        this.fetchers.push(fetcher);
 
         return fetcher;
     },

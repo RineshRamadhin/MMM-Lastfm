@@ -1,0 +1,34 @@
+.MMM-Lastfm .minimal .title {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.MMM-Lastfm .minimal table {
+    width: inherit;
+    max-width: inherit;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.MMM-Lastfm .minimal .symbol {
+    width: 25px;
+    display: flex;
+    flex-direction: row;
+    font-size: var(--font-size-small);
+}
+
+/* Left */
+.MMM-Lastfm .minimal.left .symbol span {
+    padding-top: 4px;
+    padding-right: 4px;
+}
+
+/* Right */
+.MMM-Lastfm .minimal.right .symbol span {
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.MMM-Lastfm .minimal.right table {
+    float: right;
+}
