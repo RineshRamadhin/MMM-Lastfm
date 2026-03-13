@@ -36,7 +36,7 @@
         "Bandcamp",
         "Pandora"
     ],
-    "license": "CC-BY-NC-SA-4.0",
+    "license": "AGPL-3.0-only",
     "name": "mmm-lastfm",
     "repository": {
         "type": "git",
@@ -46,5 +46,5 @@
         "lint": "eslint",
         "lint:fix": "eslint --fix"
     },
-    "version": "1.5.0"
+    "version": "1.5.1"
 }

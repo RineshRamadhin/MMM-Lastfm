@@ -3,6 +3,7 @@
 ![](./assets/banner.gif)
 
 [![CodeQL](https://github.com/RineshRamadhin/MMM-Lastfm/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/RineshRamadhin/MMM-Lastfm/actions/workflows/codeql-analysis.yml)
+[![Automated Tests](https://github.com/RineshRamadhin/MMM-Lastfm/actions/workflows/automated-tests.yml/badge.svg)](https://github.com/RineshRamadhin/MMM-Lastfm/actions/workflows/automated-tests.yml)
 
 A module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) that displays the [Last.fm](https://www.last.fm/) scrobble currently playing.
 
