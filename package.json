@@ -1,12 +1,27 @@
 {
-    "name": "mmm-lastfm",
-    "version": "1.3.1",
-    "description": "A module for MagicMirror² that displays the Last.fm scrobble currently playing.",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/RineshRamadhin/MMM-Lastfm"
+    "author": {
+        "name": "Rinesh Ramadhin",
+        "url": "https://github.com/RineshRamadhin"
     },
+    "bugs": {
+        "url": "https://github.com/RineshRamadhin/MMM-Lastfm/issues"
+    },
+    "contributing": {
+        "url": "https://github.com/RineshRamadhin/MMM-Lastfm/pulls"
+    },
+    "description": "A module for MagicMirror² that displays the Last.fm scrobble currently playing.",
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@stylistic/eslint-plugin": "^5.10.0",
+        "eslint": "^10.0.3",
+        "globals": "^17.4.0"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "homepage": "https://github.com/RineshRamadhin/MMM-Lastfm#readme",
     "keywords": [
+        "media",
         "MagicMirror",
         "MagicMirror²",
         "MM2",
@@ -21,19 +36,15 @@
         "Bandcamp",
         "Pandora"
     ],
-    "author": {
-        "name": "Rinesh Ramadhin",
-        "url": "https://github.com/RineshRamadhin"
+    "license": "CC-BY-NC-SA-4.0",
+    "name": "mmm-lastfm",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RineshRamadhin/MMM-Lastfm"
     },
-    "bugs": {
-        "url": "https://github.com/RineshRamadhin/MMM-Lastfm/issues"
+    "scripts": {
+        "lint": "eslint",
+        "lint:fix": "eslint --fix"
     },
-    "contributing": {
-        "url": "https://github.com/RineshRamadhin/MMM-Lastfm/pulls"
-    },
-    "engines": {
-        "node": ">=18"
-    },
-    "homepage": "https://github.com/RineshRamadhin/MMM-Lastfm#readme",
-    "license": "CC-BY-NC-SA-4.0"
+    "version": "1.5.0"
 }

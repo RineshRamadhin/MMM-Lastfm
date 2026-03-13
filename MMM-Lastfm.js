@@ -88,6 +88,8 @@ Module.register("MMM-Lastfm", {
                 return `layouts/row-${this.config.align}.njk`;
             case "minimal":
                 return `layouts/minimal-${this.config.align}.njk`;
+            case "card":
+                return `layouts/card-${this.config.align}.njk`;
             case "standard":
             default:
                 return `layouts/standard-${this.config.align}.njk`;
@@ -118,6 +120,7 @@ Module.register("MMM-Lastfm", {
             this.file("styles/standard.css"),
             this.file("styles/row.css"),
             this.file("styles/minimal.css"),
+            this.file("styles/card.css"),
             "font-awesome.css"
         ];
     },

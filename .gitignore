@@ -4,3 +4,6 @@
 # Editor directories and files
 .idea
 .vscode
+
+# Dev dependency directories
+node_modules

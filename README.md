@@ -16,6 +16,8 @@ Just navigate to the `modules` directory of your MagicMirror² installation and 
 git clone https://github.com/RineshRamadhin/MMM-Lastfm.git
 ```
 
+*While the `package.json` file is included in the repository, there are no runtime dependencies to install. After cloning the repository, you can proceed to configure the module as described in the [Configuration](#configuration) section.*
+
 ## Update
 
 To update the module, navigate to the `MMM-Lastfm` directory and pull the latest changes.
@@ -54,19 +56,19 @@ Then copy the `apiKey` for your config. You can find an overview of API accounts
 
 ### Configuration Options
 
-| **Option**        | **Type**   | **Default**    | **Description**                                                                                                                                      |
-| ----------------- | ---------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `layout`          | `string`   | `standard`     | The layout to use. Left/right alignment will happen automatically. Possible options: [`standard`, `row`, `minimal`]                                  |
-| `align`           | `string`   | automatic      | How to align the chosen layout. Default value will dynamically be calculated based on the module position. Possible options: [`left`, `right`]       |
-| `loadingText`     | `string`   | `Loading...`   | The loading text to show while waiting for the first response from Last.fm.                                                                          |
-| `apiKey`          | `string`   | ``             | The Last.fm API key. See the [Last.fm API key](#lastfm-api-key) section for more info.                                                               |
-| `username`        | `string`   | ``             | The Last.fm username. See the [User-privacy](#user-privacy) section for more info.                                                                   |
-| `activeInterval`  | `integer`  | `10`           | How often to check for updates when listening to a song in seconds. This should be at least 10 seconds.                                              |
-| `passiveInterval` | `integer`  | `60`           | How often to check for updates when not listening to a song in seconds. This should be at least 10 seconds.                                          |
-| `passiveCount`    | `integer`  | `5`            | How many times to stay in `active` mode after you stop listening to songs before switching to `passive` mode.                                        |
-| `animationSpeed`  | `integer`  | `1000`         | The fade effect speed between songs and showing / hiding the module in ms.                                                                           |
-| `textLength`      | `integer`  | `30`           | The maximum text length before cutting off.                                                                                                          |
-| `albumArtEffects` | `string`   | ``             | A space-separated list of effects to apply to the album art. Possible options: [`grayscale`, `rounded`, `round`, `rotate[-slow/fast/reverse]`, `cd`] |
+| **Option**        | **Type**   | **Default**    | **Description**                                                                                                                                                        |
+| ----------------- | ---------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `layout`          | `string`   | `standard`     | The layout to use. Left/right alignment will happen automatically. Possible options: [`standard`, `row`, `minimal`, `card`]                                            |
+| `align`           | `string`   | automatic      | How to align the chosen layout. Default value will dynamically be calculated based on the module position. Possible options: [`left`, `right`]                         |
+| `loadingText`     | `string`   | `Loading...`   | The loading text to show while waiting for the first response from Last.fm.                                                                                            |
+| `apiKey`          | `string`   | ``             | The Last.fm API key. See the [Last.fm API key](#lastfm-api-key) section for more info.                                                                                 |
+| `username`        | `string`   | ``             | The Last.fm username. See the [User-privacy](#user-privacy) section for more info.                                                                                     |
+| `activeInterval`  | `integer`  | `10`           | How often to check for updates when listening to a song in seconds. This should be at least 10 seconds.                                                                |
+| `passiveInterval` | `integer`  | `60`           | How often to check for updates when not listening to a song in seconds. This should be at least 10 seconds.                                                            |
+| `passiveCount`    | `integer`  | `5`            | How many times to stay in `active` mode after you stop listening to songs before switching to `passive` mode.                                                          |
+| `animationSpeed`  | `integer`  | `1000`         | The fade effect speed between songs and showing / hiding the module in ms.                                                                                             |
+| `textLength`      | `integer`  | `30`           | The maximum text length before cutting off.                                                                                                                            |
+| `albumArtEffects` | `string`   | ``             | A space-separated list of effects to apply to the album art. Possible options: [`grayscale`, `darken`, `blur`, `rounded`, `round`, `rotate[-slow/fast/reverse]`, `cd`] |
 
 ### API rate limits
 Last.fm makes use of a fair use policy when it comes to API rate limits. In order to reduce the API calls made to Last.fm this module will try to combine API calls as much as possible. When two or more instances of the module are shown on a page, or multiple screens are used, behind the scenes a single fetcher will be used to retrieve data from Last.fm. Fetchers will be reused when instances have the following identical config options: `apiKey`, `username`, `activeInterval`, `passiveInterval` and `passiveCount`.
@@ -77,19 +79,20 @@ You can check and update this setting on the [Privacy page](https://www.last.fm/
 
 ## Screenshots
 
-Standard layout (left)                 |  Standard layout (right)
-:------------------------------------:|:-----------------------------:
-![](./assets/layout-standard-left.png) |![](./assets/layout-standard-right.png)
-Row layout (left)                     |  Row layout (right)
-![](./assets/layout-row-left.png)     |![](./assets/layout-row-right.png)
-Minimal layout (left)                 |  Minimal layout (right)
-![](./assets/layout-minimal-left.png) |![](./assets/layout-minimal-right.png)
+| Template | Left                                  | Right                                 |
+|----------|---------------------------------------|---------------------------------------|
+| Standard |![](./assets/layout-standard-left.png) |![](./assets/layout-standard-right.png)|
+| Row      |![](./assets/layout-row-left.png)      |![](./assets/layout-row-right.png)     |
+| Minimal  |![](./assets/layout-minimal-left.png)  |![](./assets/layout-minimal-right.png) |
+| Card     |![](./assets/layout-card-left.png)     |![](./assets/layout-card-right.png)    |
 
-Album art effect  |  Example
-:----------------:|:-----------------------------:
-None              |![](./assets/album-art-effect-none.png)
-grayscale         |![](./assets/album-art-effect-grayscale.png)
-rounded           |![](./assets/album-art-effect-rounded.png)
-round             |![](./assets/album-art-effect-round.png)
-round rotate      |![](./assets/album-art-effect-rotate.gif)
-cd                |![](./assets/album-art-effect-cd.png)
+| Effect       | Example                                    |
+|:------------:|:------------------------------------------:|
+| None         |![](./assets/album-art-effect-none.png)     |
+| grayscale    |![](./assets/album-art-effect-grayscale.png)|
+| darken       |![](./assets/album-art-effect-darken.png)   |
+| blur         |![](./assets/album-art-effect-blur.png)     |
+| rounded      |![](./assets/album-art-effect-rounded.png)  |
+| round        |![](./assets/album-art-effect-round.png)    |
+| round rotate |![](./assets/album-art-effect-rotate.gif)   |
+| cd           |![](./assets/album-art-effect-cd.png)       |

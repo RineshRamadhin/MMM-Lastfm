@@ -1,0 +1,67 @@
+.MMM-Lastfm .card .img-holder {
+    position: relative;
+    display: inline-block;
+}
+
+.MMM-Lastfm .card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    color: white;
+}
+
+.MMM-Lastfm .card .overlay table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.MMM-Lastfm .card .overlay .symbol {
+    width: 20px;
+    display: flex;
+    flex-direction: row;
+    font-size: var(--font-size-small);
+}
+
+.MMM-Lastfm .card .overlay .title {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Album art effects */
+.MMM-Lastfm .card .cd~.cd-hole {
+    position: absolute;
+    display: block;
+    width: 10%;
+    aspect-ratio: 1/1;
+    left: 39%;
+    top: 30%;
+    border-width: 1em;
+}
+
+/* Left */
+.MMM-Lastfm .card.left .overlay .symbol span {
+    padding-top: 4px;
+    padding-right: 4px;
+}
+
+.MMM-Lastfm .card.left .overlay table td.symbol {
+    margin-right: 4px;
+}
+
+.MMM-Lastfm .card.left .overlay table {
+    width: auto;
+}
+
+/* Right */
+.MMM-Lastfm .card.right .overlay .symbol span {
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.MMM-Lastfm .card.right .overlay table {
+    width: auto;
+    margin-left: auto;
+}

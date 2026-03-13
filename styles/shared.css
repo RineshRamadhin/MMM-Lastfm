@@ -1,12 +1,28 @@
-.MMM-Lastfm .grayscale {
-  filter: grayscale(100%);
+.MMM-Lastfm img {
+  --blur-val: 0px;
+  --brightness-val: 100%;
+  --grayscale-val: 0%;
+
+  filter: blur(var(--blur-val)) brightness(var(--brightness-val)) grayscale(var(--grayscale-val));
 }
 
-.MMM-Lastfm .rounded {
+.MMM-Lastfm img.blur {
+  --blur-val: 2px;
+}
+
+.MMM-Lastfm img.darken {
+  --brightness-val: 50%;
+}
+
+.MMM-Lastfm img.grayscale {
+  --grayscale-val: 100%;
+}
+
+.MMM-Lastfm img.rounded {
   border-radius: 10px;
 }
 
-.MMM-Lastfm .round {
+.MMM-Lastfm img.round {
   border-radius: 50%;
 }
 
@@ -20,28 +36,28 @@
   }
 }
 
-.MMM-Lastfm .rotate {
+.MMM-Lastfm img.rotate {
   animation: spin 7s infinite linear;
 }
 
-.MMM-Lastfm .rotate-slow {
+.MMM-Lastfm img.rotate-slow {
   animation-duration: 15s;
 }
 
-.MMM-Lastfm .rotate-fast {
+.MMM-Lastfm img.rotate-fast {
   animation-duration: 1s;
 }
 
-.MMM-Lastfm .rotate-reverse {
+.MMM-Lastfm img.rotate-reverse {
   animation-direction: reverse;
 }
 
-.MMM-Lastfm .cd {
+.MMM-Lastfm img.cd {
   border-radius: 50%;
   border: 1px solid white;
 }
 
-.MMM-Lastfm .cd-hole {
+.MMM-Lastfm img.cd-hole {
   display: none;
   opacity: 0.85;
   background-color: black;
