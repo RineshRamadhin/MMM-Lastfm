@@ -20,7 +20,7 @@ module.exports = class Fetcher {
      * @param {string} notification message type
      * @param {object} payload message data
      */
-    #callback = (notification, payload) => {};
+    #callback = () => {};
 
     #apiKey;
     #username;
