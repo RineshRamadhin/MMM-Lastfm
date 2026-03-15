@@ -46,6 +46,5 @@
         "lint": "eslint",
         "lint:fix": "eslint --fix"
     },
-    "type": "commonjs",
     "version": "1.5.2"
 }
